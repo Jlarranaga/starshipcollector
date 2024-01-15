@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1>{{ starship.name }}'s Details</h1>
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ starship.name }}</span>
+            <p>Registration: {{ starship.registration }}</p>
+            <p>Class: {{ starship.ship_class }}</p>
+            <p>Captain: {{ starship.captain }}</p>
+            
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1>Starships</h1>
+
+    {% for s in starships %}
+        <div class="card">
+            <a href="/starships/{{ starship.id }}">
+                <div class="card-content #bdbdbd grey lighten-1">
+                    <span class="card-title ">{{ s.name }}</span>
+                    <p>Registration: {{ s.registration }}</p>
+                    <p>Class: {{ s.ship_class }}</p>
+                    <p>Captain: {{ s.captain }}</p>
+                  
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+
+
+{% endblock %}
