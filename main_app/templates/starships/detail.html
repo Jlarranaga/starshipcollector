@@ -11,5 +11,41 @@
             
         </div>
     </div>
-
+    <div class="card-action">
+        <a href="{% url 'starships_update' starship.id %}">Update</a>
+        <a href="{% url 'starships_delete' starship.id %}">Delete</a>
+    </div>
+    <div class="col s6">
+        <form action="{% url 'add_maintenance' starship.id %}" method="POST">
+            {% csrf_token %}
+            <!-- render our inputs -->
+            <!-- renders form inputs as p tags -->
+            {{ maintenance_form.as_p }}
+            <input type="submit" class="btn" value="Add Maintenance">
+        </form>
+        <hr>
+        {% if starship.maintenance_today %}
+            <div class="card-panel teal-text center-align">
+                {{starship.name}} maintenance completed for the day!
+            </div>
+        {% else %}
+            <div class="card-panel red-text center-align">
+                {{starship.name}} may need some maintenance.
+            </div>
+        {% endif %}
+        <hr>
+        <table class="striped">
+            <thead>
+                <tr><th>Date</th><th>Work</th></tr>
+            </thead>
+            <tbody>
+                {% for maintenance in starship.maintenance_set.all %}
+                    <tr>
+                        <td>{{maintenance.date}}</td>
+                        <td>{{maintenance.get_work_display}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

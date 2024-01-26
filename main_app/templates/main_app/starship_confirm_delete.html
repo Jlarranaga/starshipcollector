@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h3>Decommission Starship</h3>
+
+    <h4>Are you sure you want to decommission the <span class="teal-text">{{ object.name}} </span>?</h4>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Affirmative! - Decommission" class="btn">
+        <a href="{% url 'detail' starship.id %}" class="btn red">Cancel</a>
+    </form>
+
+{% endblock %}

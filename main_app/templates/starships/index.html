@@ -3,14 +3,14 @@
 
     <h1>Starships</h1>
 
-    {% for s in starships %}
+    {% for starship in starships %}
         <div class="card">
-            <a href="/starships/{{ starship.id }}">
+            <a href="{% url 'detail' starship.id %}">
                 <div class="card-content #bdbdbd grey lighten-1">
-                    <span class="card-title ">{{ s.name }}</span>
-                    <p>Registration: {{ s.registration }}</p>
-                    <p>Class: {{ s.ship_class }}</p>
-                    <p>Captain: {{ s.captain }}</p>
+                    <span class="card-title ">{{ starship.name }}</span>
+                    <p>Registration: {{ starship.registration }}</p>
+                    <p>Class: {{ starship.ship_class }}</p>
+                    <p>Captain: {{ starship.captain }}</p>
                   
                 </div>
             </a>
